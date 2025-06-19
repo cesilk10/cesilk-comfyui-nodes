@@ -33,7 +33,7 @@ class SaveAndUploadToS3:
                 "filename_prefix": ("STRING", {"default": "%year%-%month%-%day%/%hour%%minute%%second%", "tooltip": "The prefix for the file to save. This may include formatting information such as %date:yyyy-MM-dd% or %Empty Latent Image.width% to include values from nodes."}),
                 "s3_upload": ("BOOLEAN", {"default": False}),
                 "s3_bucket": ("STRING", {"default": "sd-image-88"}),
-                "s3_path": ("STRING", {"default": f"outputs/{current_jst_date()}/"}),
+                "s3_path": ("STRING", {"default": ""}),
             },
             "hidden": {
                 "prompt": "PROMPT", "extra_pnginfo": "EXTRA_PNGINFO"
@@ -72,6 +72,8 @@ class SaveAndUploadToS3:
             counter += 1
 
             if s3_upload:
+                if s3_path is None:
+                    s3_path = f"outputs/{current_jst_date()}/"
                 key = os.path.join(s3_path, file)
                 s3.upload_file(os.path.join(full_output_folder, file), s3_bucket, key)
                 print(f"upload image success. S3 Key: {key}")
