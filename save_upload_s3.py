@@ -72,7 +72,7 @@ class SaveAndUploadToS3:
             counter += 1
 
             if s3_upload:
-                if s3_path is None:
+                if not s3_path:
                     s3_path = f"outputs/{current_jst_date()}/"
                 key = os.path.join(s3_path, file)
                 s3.upload_file(os.path.join(full_output_folder, file), s3_bucket, key)
