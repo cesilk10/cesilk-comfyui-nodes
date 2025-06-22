@@ -10,7 +10,7 @@ from comfy.cli_args import args
 import folder_paths
 
 # AWS Settings
-session = boto3.Session(profile_name="default")
+session = boto3.Session()
 s3 = session.client("s3", region_name="ap-northeast-1")
 
 
