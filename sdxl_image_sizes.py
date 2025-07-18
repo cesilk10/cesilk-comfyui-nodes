@@ -23,7 +23,7 @@ class SdxlImageSizes:
     RETURN_TYPES = ("INT", "INT")
     RETURN_NAMES = ("width", "height")
     FUNCTION = "get_dimensions"
-    CATEGORY = "cesilk_nodes"
+    CATEGORY = "🐅cesilk_nodes"
 
     def get_dimensions(self, size):
         w_str, h_str = size.split(" ")[0].split("x")

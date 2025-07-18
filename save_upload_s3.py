@@ -42,7 +42,7 @@ class SaveAndUploadToS3:
 
     RETURN_TYPES = ()
     FUNCTION = "save_image_to_s3"
-    CATEGORY = "cesilk_nodes"
+    CATEGORY = "🐅cesilk_nodes"
     OUTPUT_NODE = True
 
     def save_image_to_s3(self, images, filename_prefix, s3_upload, s3_bucket, s3_path, prompt=None, extra_pnginfo=None):
